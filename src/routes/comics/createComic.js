@@ -16,10 +16,10 @@ router.post('', async (req, res) => {
         price,
         discount,
         page_count,
-        condtition
+        condition
     } = req.body;
 
-    if (!book_name || !author_name || !published_year || !price || !discount || !page_count || !condtition) {
+    if (!book_name || !author_name || !published_year || !price || !discount || !page_count || !condition) {
         return res.json({
             status: 400,
             result: 'err',
@@ -35,7 +35,7 @@ router.post('', async (req, res) => {
             price,
             discount,
             page_count,
-            condtition
+            condition
         });
 
         const savedComic = await comic.save();

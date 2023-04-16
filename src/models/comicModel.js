@@ -25,7 +25,7 @@ const comicSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
-    condtition: {
+    condition: {
         type: String,
         required: true,
     }

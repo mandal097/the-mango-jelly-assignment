@@ -8,8 +8,14 @@ const router = require('express').Router();
 // http://localhost:5000/api/v1/comic-lists
 
 router.get('', async (req, res) => {
+    const sortAttr = req.query.sort;
     try {
-        const list = await Comic.find();
+        let list = await Comic.find();
+
+        if (sortAttr) {
+            list = list.sort((a, b) => a[`${sortAttr}`] - b[`${sortAttr}`]);
+        }
+
         return res.json({
             status: 200,
             result: 'success',
