@@ -4,12 +4,17 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
+const cors = require('cors');
 
 const baseRouter = require('./src/routes/router')
 
 const app = express();
-const port = process.env.PORT || 5050;
+const port = process.env.PORT || 5000;
 
+app.use(cors({
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}))
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.json());

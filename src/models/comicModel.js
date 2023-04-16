@@ -1,17 +1,40 @@
 const mongoose = require('mongoose');
 
 const comicSchema = mongoose.Schema({
-    c_name:{
-        type:String,
-        required:true,
+    book_name: {
+        type: String,
+        required: true,
     },
-    author_name:{
-        type:String,
-        required:true,
+    author_name: {
+        type: String,
+        required: true,
     },
-    page:{
-        type:Number,
-        required:true,
+    published_year: {
+        type: String,
+        required: true,
     },
-    
-})
+    price: {
+        type: Number,
+        required: true,
+    },
+    discount: {
+        type: Number,
+        required: true,
+    },
+    page_count: {
+        type: Number,
+        required: true,
+    },
+    condtition: {
+        type: String,
+        required: true,
+    }
+
+},
+    { timestamps: true }
+)
+
+
+const Comic = new mongoose.model('Comic', comicSchema);
+
+module.exports = Comic
